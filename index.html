@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Ucankucuk.GitHub.io by ucankucuk</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Ucankucuk.GitHub.io</h1>
+        <h2>Blog</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/ucankucuk" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="sprİng-tutorİal" class="anchor" href="#spr%C4%B0ng-tutor%C4%B0al" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SPRİNG TUTORİAL</h1>
+
+<h1>
+<a id="sprİng-nedİr-" class="anchor" href="#spr%C4%B0ng-ned%C4%B0r-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SPRİNG NEDİR ?</h1>
+
+<ul>
+<li>Spring kolay ve hızlı geliştirmeler için kapsamlı altyapı desteği sağlayan , açık kaynak kodlu bir framework'tür.</li>
+<li>Rod Johnson Apache 2.0 lisansı altında Haziran 2003'de yazmıştır.</li>
+<li>Enterprise Java için oldukça popüler uygulama geliştirme frameworküdür.</li>
+</ul>
+
+<h1>
+<a id="spring-avantajları-nelerdir-" class="anchor" href="#spring-avantajlar%C4%B1-nelerdir-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spring Avantajları Nelerdir ?</h1>
+
+<ul>
+<li>Basit Java sınıfları (POJO - Plain Old Java Object) kullanılarak yazılım yapılabilir.Bu sınıfların test edilmesi , debugging ile hataların aranması ve kurulumu(deployment) daha kolaydır.EJB teknolojisinde olduğu gibi bir EJB Container serverine ihtiyaç duyulmamaktadır.</li>
+<li>Spring MVC ile web tabanlı programlar oluşturmak mümkündür.Web uygulamalarında deklaratif transaksiyon yöntemi , güvenlik ve database bağlantısı gibi temel altyapı ihtiyaçları Spring ve Spring MVC tarafından sağlanır.</li>
+<li>Piyasada ki mevcut teknolojilerin entegre edilmesini kolaylaştrmadır.</li>
+<li>Modüler bir yapıya sahiptir.Proje gerekleri doğrultusunda belirli Spring modülleri kullanılablir.</li>
+<li>Konfigürasyon dosyalarında yapılacak ayarlamalar ile otomatik olarak Singleton nesneler oluşturrabilir. Yani özel Singleton sonıflarını oluşturması gereğini ortadan kaldırır.</li>
+<li>Design pattern  kullanımı Spring aracılığıyla kolaylaştırır.</li>
+<li>Sunduğu Servlet Mock sınıfları ile Spring MVC ile oluşturulan web tabanlı programların Tomcat gibi bir Servlet container serverinden bağımsız olarak test edilmesini kolaylaştırır.</li>
+</ul>
+
+<h1>
+<a id="dependency-injectiondi" class="anchor" href="#dependency-injectiondi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependency Injection(DI):</h1>
+
+<ul>
+<li>Spring in avatajlarındandır.</li>
+<li>Java Object Oriented bir dildir.Nesneleri Java sınıfları ile modelleriz.Bu sınıflarda programda kullanılan nesneler üretilir.Nesneler işlevini yaparken başka nesneleri kullanabilirler.Bu durmdan dolayı NullPointerException oluşabilir.(*Null pointerException:kullanılmak istenen nesnenin null değerine sahip olmasından kaynaklanmaktadır.Daha açık söylemek gerekirse o nesne new operatörü ile oluşturulmamıştır.)Bu hatanın oluşmaması için bağımlılık duyulan nesnelerin oluşturulması gerekmektedir.</li>
+<li>Bunu bir örnekle açıklayalım:
+Aşağıda ki kodda : <code>classA</code>sınıfının <code>classB</code> tipinde bir sınıf değişkeni vardır.Bundan dolayı <code>ClassA</code> ile <code>ClassB</code> arasında bir bağımlılık oluşmaktadır.<code>ClassA</code> <code>ClassB</code> olmadan print işlevini yapamayacaktır.Haliyle <code>NullPointerException</code> oluşacaktır.</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">com.uckucuk.github.io</span>;
+
+<span class="pl-k">public</span> <span class="pl-smi">ClassA</span>{
+    <span class="pl-k">private</span> <span class="pl-smi">ClassB</span> classB;
+    <span class="pl-k">public</span> <span class="pl-smi">CLassB</span> getClassB(){
+        <span class="pl-k">return</span> classB;
+    }
+    <span class="pl-k">public</span> <span class="pl-k">void</span> setClassB(<span class="pl-smi">ClassB</span> classB){
+        <span class="pl-v">this</span><span class="pl-k">.</span>classB <span class="pl-k">=</span> classB;
+    }
+    <span class="pl-k">public</span> <span class="pl-k">void</span> print(<span class="pl-smi">String</span> msg){
+        classB<span class="pl-k">.</span>pring(msg);
+    }
+} </pre></div>
+
+<p>Burada <code>ClassB</code> POJO'dur.POJO, bir Java sınıfının bir başka sınıf ile extends,implements gibi bağlantılarının yapılmamış, constructor oluşturulmamış ve belirtimler kullanılmamış halidir.(<strong>P</strong>lain <strong>O</strong>ld <strong>J</strong>ava <strong>O</strong>bject)</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ClassB</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">print</span>(<span class="pl-smi">String</span> <span class="pl-v">msg</span>){
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>msg<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+
+<p>Durum böyleyken bizim <code>NullPointerException</code> hatası alamamız için print metodunu şöyle kullanmamız gerekir.
+<code>Test</code>:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Test</span>{
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+       <span class="pl-smi">ClassA</span> classA <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ClassA</span>();
+       <span class="pl-smi">ClassB</span> classB <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ClassB</span>();
+       classA<span class="pl-k">.</span>setClassB(classB);
+       classA<span class="pl-k">.</span>print(<span class="pl-s"><span class="pl-pds">"</span>Hello Spring World<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+
+<p>Görüldüğü gibi bağımlılık duyulan nesnelerden sadece bir tanesinin değerinin null olması <code>NullPointerException</code> oluşturacaktır.Ayrıca tüm nesnelerin new operatörü ile oluşturulup teker teker set edilmeside zahmetli ve zaman alıcı bir iştir.İşte Spring Dependency Injection kullanarak bu işlemi sadeleştirebiliriz.</p>
+
+<p>Spring ; <strong>applicationContext.xml</strong> isimli bir XML dosyası barındırır.Bu dosyada kullanılacak nesneler tanımlanır.
+Bu xml dosyası içerisinde her sınıf için <strong></strong> tagleri yer alır.Yukarıda ki örnek için devam edicek olursak:
+<strong><code>applicationContext.xml</code>:</strong></p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">&lt;</span><span class="pl-k">?</span>xml version<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span> encoding<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span><span class="pl-k">?</span><span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">!</span><span class="pl-c1">DOCTYPE</span> beans <span class="pl-c1">PUBLIC</span> <span class="pl-s"><span class="pl-pds">"</span>-//SPRING//DTD BEAN 2.0//EN<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span>beans<span class="pl-k">&gt;</span>
+      <span class="pl-k">&lt;</span>bean id<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>ClassA<span class="pl-pds">"</span></span>
+            class<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>org.javatasarim.spring.dependencyinjection.ClassA<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>classB<span class="pl-pds">"</span></span> ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>ClassB<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+      <span class="pl-k">&lt;</span><span class="pl-k">/</span>bean<span class="pl-k">&gt;</span>
+      <span class="pl-k">&lt;</span>bean id<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>ClassB<span class="pl-pds">"</span></span>
+            class<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>org.javatasarim.spring.dependencyinjection.ClassB<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+      <span class="pl-k">&lt;</span><span class="pl-k">/</span>bean<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>beans<span class="pl-k">&gt;</span></pre></div>
+
+<p><strong><code>ClassA</code></strong> ile <strong><code>ClassB</code></strong> arasındaki bağı oluşturmak için <strong></strong> tagı kullanılır.
+Bu tag içerisinde <strong>"name"</strong> elementi ile enjekte edilmesi gereken değişken tanımlanır.<strong>"ref"</strong> elementi ile de referans verilen class'ın ismi taşıyan class hedef olarak gösterilir.</p>
+
+<p><strong>Sonuç olarak bu örnekte her bir class için teker teker nesne oluşturup setlemek yerine bu tanımlamaları yaparak **ClassA</strong> oluşturulurken bu sınıfın değişkeni olan <strong>ClassB</strong>'yi de oluşturup <strong>ClassA</strong> nesnesine enjekte edilmesi sağlandı.Tam olarak bu işlemin adı : <strong>Dependency Injection</strong>'dır.</p>
+
+<h1>
+<a id="aspect-oriented-programming-aop" class="anchor" href="#aspect-oriented-programming-aop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Aspect Oriented Programming (AOP):</h1>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
