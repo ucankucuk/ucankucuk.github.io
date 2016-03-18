@@ -46,9 +46,56 @@
 <strong>Çok Kanallı (Multithreaded)</strong> : Thread işlem(process) içerisinde bir akıştır.İşletim istemin çalışma mantığı şöyledir:bir işlem başlatıldığında belleğin bir kısmını ona tahsis eder ve kodu belleğe yükler.İşletim sistemi bunun gibi işlemleri CPU gibi sistem kaynaklarını işlemler arasında paylaştırır.Bu paylaştırma çok hızlı gerçekleşir, bundan dolayı aynı anda pek çok program çalışıyormuş izlenimine kapılabiliriz.Benzer bir paylaştırma işlem içerisindeki işlemcikler arasında olur.Böylelikle işlem daha hızlı yapılır.Tüm bu nedenlerden dolayı programlar multithread yapıları daha sık ve etkin kullanmalılardır. Ayrıca açıklamak gerekirse : thread'ler işlemlere göre daha hızlı oluşturulurlar,aralarında da veri iletimi çok daha kolaydır.</li>
 <li>
 <strong>Yüksek Performanslı (High Performance)</strong> : Just-In-Time compiler kullanımıyla birlikte Java yüksek performanslara ulaşabilir.Peki Just-In-Time Compiler nedir ? Just-In-Time compiler : Türkçe karşılığına Son dakika derleyicisi diyebiliriz.Yazdığımız "high level " kod makine koduna(0-1 lere) dönüşmeden önce "middle level" kodlara dönüştürülüyor.Bu "middle level" kodlar makine için hiçbir şey ifade etmez.Projeyi run ettiğimiz sırada Just-In-Time devreye giriyor ve bir son dakika derlemesi yapıyor.Böylece "middle level" kodlar makine diline çevriliyor. Tabi bunu bunu hepsini derleyerek değilde sadece kullanılacak yeri derleyip geri kalan kısmını yorumlayarak yapıyor.Yani burdan çıkaracağımız : Tekrar tam derleme gerekmediği ve tekrar tekrar aynı işlemlere gerek kalmadığı için hız artışı sağlamış oluyoruz.</li>
-<li><p><strong>Dinamik (Dynamic)</strong> : Java gelişen ortama uyum için tasarlanmıştır.Dinamik çalışmaya önem verir.Çalışma zamanında nesnelere erişime, bytecode'un küçük parçalarının güncellenmesine izin verir. </p></li>
-<li><p>Yukarıdaki özelliklerin dışında araştırdıkça daha da fazla olduklarını görebilirsiniz.</p></li>
+<li>
+<strong>Dinamik (Dynamic)</strong> : Java gelişen ortama uyum için tasarlanmıştır.Dinamik çalışmaya önem verir.Çalışma zamanında nesnelere erişime, bytecode'un küçük parçalarının güncellenmesine izin verir.</li>
 </ul>
+
+<h1>
+<a id="temel-sözdizimi-basic-syntax" class="anchor" href="#temel-s%C3%B6zdizimi-basic-syntax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Temel Sözdizimi (Basic Syntax)</h1>
+
+<ul>
+<li>
+<strong>Nesne (Object)</strong> : Nesneler davranış(behaviours) ve durumlara(states) sahiptirler. Örnek olarak köpek nesnesini ele alalım.Köpeğin rengi , adı , cinsi Bir state'dir.Köpeğin havlaması , ısırması , koşması ise birer behaviour'dur.</li>
+<li>
+<strong>Sınıf (Class)</strong> : Sınıflar durum ve davranışların tanımlandığı bir şablon/plan olarak tanımlanabilir.</li>
+<li>
+<strong>Metod (Method)</strong> : Metod temel olarak bir davranıştır(behaviour).Bir sınıf birden çok metod içerebilir.</li>
+<li>
+<strong>Değişkenler (Instance Variables)</strong> :Değişkenler de temel olarak durumlardır(state).</li>
+</ul>
+
+<p><strong>İlk Java Koduna Merhaba Dünya dedirterek başlayalım</strong></p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IlkjavaProgrami</span> {
+
+   <span class="pl-c">/* Bu bir çok satırlı yorum satırıdır.  </span>
+<span class="pl-c">    * Program "Merhaba Dünya" çıktısınız üretiyor.</span>
+<span class="pl-c">    */</span>
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> []<span class="pl-v">args</span>) {
+       <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Merhaba Dünya<span class="pl-pds">"</span></span>); 
+    }
+} </pre></div>
+
+<p>Ekstralar:
+Java programları hakkında aşağıdakiler akılda tutmak çok önemlidir.</p>
+
+<ul>
+<li>
+<strong>Case Sensitivity</strong>: Java harfe duyarlıdır.Örneğin hello ile Hello farklı şeylerdir.</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CaseSensitive</span> {
+    <span class="pl-smi">String</span> hello <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>küçük harfli hello<span class="pl-pds">"</span></span>;
+    <span class="pl-smi">String</span> Hello <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>büyük harfli Hello<span class="pl-pds">"</span></span>;
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> []<span class="pl-v">args</span>) {
+         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(hello);
+         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-smi">Hello</span>); 
+    }
+} 
+<span class="pl-k">*</span> <span class="pl-k">**</span><span class="pl-smi">S</span>ınıf İsimleri (<span class="pl-smi">Class</span> <span class="pl-smi">Names</span>)<span class="pl-k">**</span> <span class="pl-k">:</span> <span class="pl-smi">T</span>üm sınıf isimlendirmelerinde kelimelerin ilk harfinin büyük olmasına özen gösterin<span class="pl-k">.</span>eğer ki birkaç kelimeden oluşan bir sınıf ismi tanımlayacaksanız tüm kelimelerin ilk harfini büyük yazın.
+Örn<span class="pl-k">:</span><span class="pl-smi">Ilk</span></pre></div>
 
       <footer class="site-footer">
 
