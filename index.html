@@ -46,8 +46,8 @@
 <strong>Çok Kanallı (Multithreaded)</strong> : Thread işlem(process) içerisinde bir akıştır.İşletim istemin çalışma mantığı şöyledir:bir işlem başlatıldığında belleğin bir kısmını ona tahsis eder ve kodu belleğe yükler.İşletim sistemi bunun gibi işlemleri CPU gibi sistem kaynaklarını işlemler arasında paylaştırır.Bu paylaştırma çok hızlı gerçekleşir, bundan dolayı aynı anda pek çok program çalışıyormuş izlenimine kapılabiliriz.Benzer bir paylaştırma işlem içerisindeki işlemcikler arasında olur.Böylelikle işlem daha hızlı yapılır.Tüm bu nedenlerden dolayı programlar multithread yapıları daha sık ve etkin kullanmalılardır. Ayrıca açıklamak gerekirse : thread'ler işlemlere göre daha hızlı oluşturulurlar,aralarında da veri iletimi çok daha kolaydır.</li>
 <li>
 <strong>Yüksek Performanslı (High Performance)</strong> : Just-In-Time compiler kullanımıyla birlikte Java yüksek performanslara ulaşabilir.Peki Just-In-Time Compiler nedir ? Just-In-Time compiler : Türkçe karşılığına Son dakika derleyicisi diyebiliriz.Yazdığımız "high level " kod makine koduna(0-1 lere) dönüşmeden önce "middle level" kodlara dönüştürülüyor.Bu "middle level" kodlar makine için hiçbir şey ifade etmez.Projeyi run ettiğimiz sırada Just-In-Time devreye giriyor ve bir son dakika derlemesi yapıyor.Böylece "middle level" kodlar makine diline çevriliyor. Tabi bunu bunu hepsini derleyerek değilde sadece kullanılacak yeri derleyip geri kalan kısmını yorumlayarak yapıyor.Yani burdan çıkaracağımız : Tekrar tam derleme gerekmediği ve tekrar tekrar aynı işlemlere gerek kalmadığı için hız artışı sağlamış oluyoruz.</li>
-<li>
-<strong>Dinamik (Dynamic)</strong> :</li>
+<li><p><strong>Dinamik (Dynamic)</strong> : Java gelişen ortama uyum için tasarlanmıştır.Dinamik çalışmaya önem verir.Çalışma zamanında nesnelere erişime, bytecode'un küçük parçalarının güncellenmesine izin verir. </p></li>
+<li><p>Yukarıdaki özelliklerin dışında araştırdıkça daha da fazla olduklarını görebilirsiniz.</p></li>
 </ul>
 
       <footer class="site-footer">
