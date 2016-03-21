@@ -112,6 +112,167 @@ Java programları hakkında aşağıdakiler akılda tutmak çok önemlidir.</p>
 <li>Son olarak değişken , sınıf , metod isimlendirmelerinde ingilizce karakterlere özen gösterin.</li>
 </ul>
 
+<h1>
+<a id="sınıf-nesne-class-object" class="anchor" href="#s%C4%B1n%C4%B1f-nesne-class-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sınıf-Nesne (Class-Object)</h1>
+
+<p>Java nesne yönelimli programlama dilidir.
+Nesne yönelimli programlama dillerinde ki gibi aşağıdakileri destekler:</p>
+
+<ul>
+<li><strong>Polymorphism</strong></li>
+<li><strong>Inheritance</strong></li>
+<li><strong>Encapsulation</strong></li>
+<li><strong>Abstraction</strong></li>
+<li><strong>Classes</strong></li>
+<li><strong>Objects</strong></li>
+<li><strong>Instance</strong></li>
+<li><strong>Method</strong></li>
+<li><strong>Message Parsing</strong></li>
+</ul>
+
+<p>Eğer gerçek dünyayı düşünürsek etrafımızda köpek,kedi ,insan birçok nesne bulabiliriz.Bir köpeği düşünecek olursak adı , rengi bu köpeğin durumu , havlaması , ısırması , koşması da davranışıdır.Eğer yazılım nesne ile gerçek hayatta ki nesneyi karşılaştırırsak benzer özellikler gösterirler.Yazılım nesnesi  davranışlara sahiptir.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Dog</span>{
+     <span class="pl-smi">String</span> name;
+     <span class="pl-k">int</span> age;
+     <span class="pl-smi">String</span> color;
+
+     <span class="pl-k">void</span> <span class="pl-en">barking</span>(){
+         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Dog is barking<span class="pl-pds">"</span></span>);
+     }
+     <span class="pl-k">void</span> <span class="pl-en">sleeping</span>(){
+         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Dog is sleeping<span class="pl-pds">"</span></span>);    
+     }
+}</pre></div>
+
+<h1>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
+
+<h1>
+<a id="temel-veri-tipleribasic-data-types" class="anchor" href="#temel-veri-tipleribasic-data-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Temel Veri Tipleri(Basic Data Types)</h1>
+
+<ul>
+<li>Bir değişken oluşturduğunuz zaman memory'de bir alan rezerv etmiş olursunuz.</li>
+<li>Veri tipine göre , işletim sistemi hafıza ayırır ve rezerv edilmiş hafızada ne saklanabilir kararı verir.</li>
+<li>Veri tipleri verilerin bilgisayar üzerinde ki bir modellemesi gibidir.Her programlama dilinde veri tipleri vardır ve bu programlama dilleri bu veri tiplerini farklı şekillerde yorumlayabilir.</li>
+<li>Java type-safe (tip-güvenli) bir dil olduğundan bir değişken oluştururken bu değişkenin tipini belirtmek zorundayız.<br>
+</li>
+<li>Java'da iki çeşit veri tipi vardır.
+
+<ul>
+<li><strong>Primitive Veri Tipi</strong></li>
+<li><strong>Referans Veri Tipi</strong></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="primitive-İlkel-veri-tipi" class="anchor" href="#primitive-%C4%B0lkel-veri-tipi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Primitive (İlkel) Veri Tipi:</h2>
+
+<ul>
+<li>Bir anahtar kelime ile dil tarafından önceden tanımlanmış ve adlandırılmıştır.</li>
+<li>Java'da 8 primitive tip desteklenir.Bunlar ;
+
+<ul>
+<li>
+<strong>byte</strong>: en küçük tamsayı primitive tiptir. 8 bit uzunluğundadır.<strong>-128</strong> ile <strong>127</strong>arasındadır. Default değeri <strong>0</strong>'dır.Tanımlamasına örnek olarak :
+<code>byte b = 100</code>
+</li>
+<li>
+<strong>short</strong>: 16 bit uzunluğundadır. <strong>-32,768</strong> ile  <strong>32,767</strong> aralığındadır. Default değeri <strong>0</strong>'dır.Tanımlamasına örnek olarak:<code>short s = 10000</code>
+</li>
+<li>
+<strong>int</strong>: 32 bit uzunluğundadır. <strong>- 2,147,483,648.</strong> ile <strong>2,147,483,647.</strong> aralığındadır.Default değeri 0'dır.Tanımlamasına örnek olarak : <code>int i = 100000</code>
+</li>
+<li>
+<strong>long</strong> 64 bit uzunluğundadır. <strong>-9,223,372,036,854,775,808.</strong> ile <strong>9,223,372,036,854,775,807</strong> aralığındadır.Default değeri 0L'dir. Tanımlamasına örnek olarak : <code>long a = 100000L</code>
+</li>
+<li>
+<strong>float</strong> : Kesirli sayıların gerekli olduğu durumlarda kullanılırlar.32 bit uzunluğundadır. Default değeri : <strong>0.0f.</strong>'dir.Tanımlamasına örnek olarak : <code>float f = 234.5f</code>
+</li>
+<li>
+<strong>double</strong> : Kesirli sayıların gerekli olduğu durumlarda kullanılırlar.64 bit uzunluğundadır. Default olarak : <strong>0.0d.</strong>'dir. Tanımlamasına örnek olarak : <code>double d = 123.4</code>
+</li>
+<li>
+<strong>boolean</strong> : Bilgi bitini temsil eder. True ve false olarak alabileceği iki değeri vardır. Default değeri <strong>false</strong>'dur. Tanımlamasına örnek olarak : <code>boolean one = true</code>.Bu arada bilmekte yarar var java'da true ve false 0 ve 1 değildir. </li>
+<li>
+<strong>char</strong> : Java'da karakterleri char veri tipiyle saklarız.Yalnız Java'da bu char veri tipi 16 bit'tir.Diğer dillerde 8 bit'tir. Yani bu veri tipi 16 bit Unicode'dur.</li>
+</ul>
+</li>
+</ul>
+
+<p>Son olarak <strong>Java gibi nesne yönelimli programlama dillerinde veri tiplerinin hepsi birer sınıftır.Bu primitive tipler çok sık kullanıldığından Java bu veri tiplerine onlara ait nesneler oluşturmaksızın kullanılması için bir ayrıcalık tanır.</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>İlkel Veri tipi</th>
+<th>Uzunluk</th>
+<th>Sınıf</th>
+<th>Varsayılan Değer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>8 bit</td>
+<td>Btye</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16 bit</td>
+<td>Short</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32 bit</td>
+<td>Integer</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>64 bit</td>
+<td>Long</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32 bit</td>
+<td>Float</td>
+<td>0.0F</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64 bit</td>
+<td>Double</td>
+<td>0.0D</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>1 bit</td>
+<td>Boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>char</td>
+<td>16 bit</td>
+<td>Character</td>
+<td>‘\u0000’</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="referans-referance-veri-tipi" class="anchor" href="#referans-referance-veri-tipi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Referans (Referance) Veri Tipi:</h2>
+
+<h1>
+<a id="todo-1" class="anchor" href="#todo-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
+
+<h1>
+<a id="java-literalsdeğişmezleri" class="anchor" href="#java-literalsde%C4%9Fi%C5%9Fmezleri" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java Literals(Değişmezleri)</h1>
+
       <footer class="site-footer">
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
