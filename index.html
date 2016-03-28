@@ -17,261 +17,82 @@
 
     <section class="main-content">
       <h1>
-<a id="javaya-başlarken-" class="anchor" href="#javaya-ba%C5%9Flarken-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JAVA'ya Başlarken :</h1>
+<a id="java-collectionsjava-koleksiyonları" class="anchor" href="#java-collectionsjava-koleksiyonlar%C4%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java Collections(Java Koleksiyonları)</h1>
+
+<p>Java koleksiyonları : Java’da bir koleksiyon (collection - bazen container, ambar diye adlandırılır) nesnelerden olusan bir
+topluluğu bir arada tutan bir yapıdır.Yazılım geliştirirken bazen tek bir değişken içerisinde birden fazla eleman tutmak isteyebiliriz.Bunun gibi durumlarda Java'nın <code>Collection</code> sınıfını kullanırız.Bu sınıf : <strong>veri depolama</strong>  ,depolanan veriyi <strong>çekme</strong> , veriyi  <strong>işlemek</strong> ve depolanan veriler içerisinde veri <strong>aramak</strong> gibi işlemler için kullanılır.Bu sınıflar içerisinden depolanan veri <strong>sıralı</strong> veya <strong>sırasız</strong> olabilir.Ayrıca aynı öğe bazı koleksiyonlarda <strong>birden çok kez</strong> <strong>bulunabilir</strong>, bazılarında <strong>bulunamaz</strong>.</p>
+
+<p>Java koleksiyonlarının avantajları olduğu gibi dezavantajları da vardır.</p>
 
 <ul>
-<li>Java aslen Sun Microsystem tarafından geliştirilmiş yüksek  seviyeli programlama dilidir.1995 yılında yayımlanmıştır.</li>
-<li>Java Windows , Mac Os , çeşitli Unix sürümleri gibi çeşitli platformlarda çalışır.</li>
-<li>Bu döküman basit ve pratik bir yaklaşımla Java programlama dilini öğretecektir.</li>
+<li>
+<strong>Avantajları</strong>:
+
+<ul>
+<li>Verileri tek bir değişkende toplamamızı ve bu toplanan verilerin işlenmesinde kolaylık sağlar.</li>
+<li>Yazılımcı , koleksiyon sınıf içerisinde ki algoritmaları kullanarak yeni algoritma yazmak zorunda kalmaz.Bu sayede yazılım kolay anlaşılabilir ve tekrar kullanılabilir <strong>(software reuse)</strong> olmasını sağlar.</li>
+<li>Yazılımcıya performans kaybı yaşatmadan hatta performansı arttıran kullanışlı algoritma ve veri yapıları sağlar.</li>
+<li>Belli bir boyutları yoktur.İçerisine veri ekleyip çıkardıkça boyutları değişir.</li>
+<li>Bu özelliği ile Arrays sınıfından öne geçer.Çünkü Java'da diziler önceden boyutlandırılır. Boyutundan fazla eleman eklememize olanak yoktur.</li>
 </ul>
-
-<p>Java:</p>
-
-<ul>
-<li>
-<strong>Nesne Yönelimli (Object Oriented)</strong> : Java'da herşey nesnedir.</li>
-<li>
-<strong>Platform Bağımsız (Platform Independent)</strong> : Bu önemli bir özelliktir.Karşılaştıracak olursak C,C# gibi diller derlendiğinde her makinede çalışabilmesi için 0 ve 1'lerden oluşan makine makine diline çevrilirler.Bu işlem işletim sistemi üzerinde olur.Sonuç olarak her makinede çalışıyor ama Windows'ta derlenmişse farklı , Linux'ta derlenmişse farklı oluyor.Buda yazılan kodun başka platformda çalışmaması anlamına geliyor.Ama Java Platform bağımsızdır.Yazılan kod her yerde çalışır.Bunun nedenide Java JVM(Java Virtual Machine) üzerinde çalışır.Bundan dolayı yazdığınız kod nerede derlenirse derlensin  bytecode'u üretir.Tabi bunun bir dezavantajı yok mudur ? tabiki vardır. Bu deztavantaj ise hızdır.Çünkü JVM işletim sistemiyle birlikte bilgisayarın kaynaklarını kullanır.</li>
-<li>
-<strong>Kolay (Simple)</strong> : Java öğrenmesi kolay olacak şekilde tasarlanmıştır.</li>
-<li>
-<strong>Güvenli (Secure)</strong> : java güvenlik özelliğiyle virüssüz sistemler geliştirmenizi sağlar.Kimlik doğrulama yöntemleri ; açık anahtarlı şifrelemeye dayanmaktadır.</li>
-<li>
-<strong>Tarafsız Mimari (Architectural-Neutral)</strong> : Java platforma bağımsız bir programlama dili olduğundan hiçbir mimari yapıya öncelik vermez ve hiçbir platform için o platforma özel yapılar içermez. Java’nın platformlar ile ilgili kabulleri, bütün platformlar tarafından genel kabul görmüş yapılarla ilgilidir. Dolayısıyla Java ile her türlü mimari yaklaşım kullanılarak her çeşit platform üzerinde uygulama geliştirmek için vardır.</li>
-<li>
-<strong>Taşınabilir (Portable)</strong> : Java'nın platformlardan bağımsız ve standartlar üzerine kurulmuş yapısı sayesinde Java kodları bir platformdan diğerine değişiklik olmadan hatta derlemeden çalışır.</li>
-<li>
-<strong>Sağlam (Robust)</strong> : Java kodlarının çalışma zamanında bile oluşabilecek sıradışı durumlarda bile çalışmasına devam edebilme yeteneği vardır.Kodların JVM'de çalışıyor olması hem çalışma anında hemde derleme anında birçok kontrolü rahatça kontrol edilebilmesini sağlıyor.</li>
-<li>
-<strong>Çok Kanallı (Multithreaded)</strong> : Thread işlem(process) içerisinde bir akıştır.İşletim istemin çalışma mantığı şöyledir:bir işlem başlatıldığında belleğin bir kısmını ona tahsis eder ve kodu belleğe yükler.İşletim sistemi bunun gibi işlemleri CPU gibi sistem kaynaklarını işlemler arasında paylaştırır.Bu paylaştırma çok hızlı gerçekleşir, bundan dolayı aynı anda pek çok program çalışıyormuş izlenimine kapılabiliriz.Benzer bir paylaştırma işlem içerisindeki işlemcikler arasında olur.Böylelikle işlem daha hızlı yapılır.Tüm bu nedenlerden dolayı programlar multithread yapıları daha sık ve etkin kullanmalılardır. Ayrıca açıklamak gerekirse : thread'ler işlemlere göre daha hızlı oluşturulurlar,aralarında da veri iletimi çok daha kolaydır.</li>
-<li>
-<strong>Yüksek Performanslı (High Performance)</strong> : Just-In-Time compiler kullanımıyla birlikte Java yüksek performanslara ulaşabilir.Peki Just-In-Time Compiler nedir ? Just-In-Time compiler : Türkçe karşılığına Son dakika derleyicisi diyebiliriz.Yazdığımız "high level " kod makine koduna(0-1 lere) dönüşmeden önce "middle level" kodlara dönüştürülüyor.Bu "middle level" kodlar makine için hiçbir şey ifade etmez.Projeyi run ettiğimiz sırada Just-In-Time devreye giriyor ve bir son dakika derlemesi yapıyor.Böylece "middle level" kodlar makine diline çevriliyor. Tabi bunu bunu hepsini derleyerek değilde sadece kullanılacak yeri derleyip geri kalan kısmını yorumlayarak yapıyor.Yani burdan çıkaracağımız : Tekrar tam derleme gerekmediği ve tekrar tekrar aynı işlemlere gerek kalmadığı için hız artışı sağlamış oluyoruz.</li>
-<li>
-<strong>Dinamik (Dynamic)</strong> : Java gelişen ortama uyum için tasarlanmıştır.Dinamik çalışmaya önem verir.Çalışma zamanında nesnelere erişime, bytecode'un küçük parçalarının güncellenmesine izin verir.</li>
-</ul>
-
-<h1>
-<a id="temel-sözdizimi-basic-syntax" class="anchor" href="#temel-s%C3%B6zdizimi-basic-syntax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Temel Sözdizimi (Basic Syntax)</h1>
-
-<ul>
-<li>
-<strong>Nesne (Object)</strong> : Nesneler davranış(behaviours) ve durumlara(states) sahiptirler. Örnek olarak köpek nesnesini ele alalım.Köpeğin rengi , adı , cinsi Bir state'dir.Köpeğin havlaması , ısırması , koşması ise birer behaviour'dur.</li>
-<li>
-<strong>Sınıf (Class)</strong> : Sınıflar durum ve davranışların tanımlandığı bir şablon/plan olarak tanımlanabilir.</li>
-<li>
-<strong>Metod (Method)</strong> : Metod temel olarak bir davranıştır(behaviour).Bir sınıf birden çok metod içerebilir.</li>
-<li>
-<strong>Değişkenler (Instance Variables)</strong> :Değişkenler de temel olarak durumlardır(state).</li>
-</ul>
-
-<p><strong>İlk Java Koduna Merhaba Dünya dedirterek başlayalım</strong></p>
-
-<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IlkjavaProgrami</span> {
-
-   <span class="pl-c">/* Bu bir çok satırlı yorum satırıdır.  </span>
-<span class="pl-c">    * Program "Merhaba Dünya" çıktısınız üretiyor.</span>
-<span class="pl-c">    */</span>
-
-    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> []<span class="pl-v">args</span>) {
-       <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Merhaba Dünya<span class="pl-pds">"</span></span>); 
-    }
-} </pre></div>
-
-<p>Ekstralar:
-Java programları hakkında aşağıdakiler akılda tutmak çok önemlidir.</p>
-
-<ul>
-<li>
-<strong>Case Sensitivity</strong>: Java harfe duyarlıdır.Örneğin hello ile Hello farklı şeylerdir.</li>
-</ul>
-
-<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CaseSensitive</span> {
-    <span class="pl-smi">String</span> hello <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>küçük harfli hello<span class="pl-pds">"</span></span>;
-    <span class="pl-smi">String</span> Hello <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>büyük harfli Hello<span class="pl-pds">"</span></span>;
-
-    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> []<span class="pl-v">args</span>) {
-         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(hello);
-         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-smi">Hello</span>); 
-    }
-} </pre></div>
-
-<ul>
-<li>
-<strong>Sınıf İsimleri (Class Names)</strong> : Tüm sınıf isimlendirmelerinde kelimelerin ilk harfinin büyük olmasına özen gösterin.eğer ki birkaç kelimeden oluşan bir sınıf ismi tanımlayacaksanız tüm kelimelerin ilk harfini büyük yazın.
-Örn:<code>IlkJavaProgramim</code>
 </li>
 <li>
-<strong>Metod İsimleri (Method Names)</strong> : Tüm sınıf isimlendirmelerinde kelimenin ilk harfinin küçük olmasına özen gösterin.Eğer ki birkaç kelimeden oluşan bir metod ismi tanımlayacaksanız ilk kelimenin ilk harfi küçük , diğer kelimelerin ilk harflerini büyük yazın. Örn:<code>metodIsımlendirmeOrnegi</code>
-</li>
-<li>
-<strong>Program Dosya İsimleri</strong> : Programın dosya ismiyle içinde ki sınıf isminin aynı olmasına özen gösterin.
-Örn: sınıf ismi -&gt; <code>IlkJavaProgramim</code> dosya ismi -&gt; <code>IlkJavaProgramim.java</code>
-</li>
-<li>
-<strong>public static void main(String args[])</strong> Java program işlemi main metodun başlar.</li>
-<li>Son olarak değişken , sınıf , metod isimlendirmelerinde ingilizce karakterlere özen gösterin.</li>
-</ul>
-
-<h1>
-<a id="sınıf-nesne-class-object" class="anchor" href="#s%C4%B1n%C4%B1f-nesne-class-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sınıf-Nesne (Class-Object)</h1>
-
-<p>Java nesne yönelimli programlama dilidir.
-Nesne yönelimli programlama dillerinde ki gibi aşağıdakileri destekler:</p>
+<strong>Dezavantajları</strong> : 
 
 <ul>
-<li><strong>Polymorphism</strong></li>
-<li><strong>Inheritance</strong></li>
-<li><strong>Encapsulation</strong></li>
-<li><strong>Abstraction</strong></li>
-<li><strong>Classes</strong></li>
-<li><strong>Objects</strong></li>
-<li><strong>Instance</strong></li>
-<li><strong>Method</strong></li>
-<li><strong>Message Parsing</strong></li>
-</ul>
-
-<p>Eğer gerçek dünyayı düşünürsek etrafımızda köpek,kedi ,insan birçok nesne bulabiliriz.Bir köpeği düşünecek olursak adı , rengi bu köpeğin durumu , havlaması , ısırması , koşması da davranışıdır.Eğer yazılım nesne ile gerçek hayatta ki nesneyi karşılaştırırsak benzer özellikler gösterirler.Yazılım nesnesi  davranışlara sahiptir.</p>
-
-<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Dog</span>{
-     <span class="pl-smi">String</span> name;
-     <span class="pl-k">int</span> age;
-     <span class="pl-smi">String</span> color;
-
-     <span class="pl-k">void</span> <span class="pl-en">barking</span>(){
-         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Dog is barking<span class="pl-pds">"</span></span>);
-     }
-     <span class="pl-k">void</span> <span class="pl-en">sleeping</span>(){
-         <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Dog is sleeping<span class="pl-pds">"</span></span>);    
-     }
-}</pre></div>
-
-<h1>
-<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
-
-<h1>
-<a id="temel-veri-tipleribasic-data-types" class="anchor" href="#temel-veri-tipleribasic-data-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Temel Veri Tipleri(Basic Data Types)</h1>
-
-<ul>
-<li>Bir değişken oluşturduğunuz zaman memory'de bir alan rezerv etmiş olursunuz.</li>
-<li>Veri tipine göre , işletim sistemi hafıza ayırır ve rezerv edilmiş hafızada ne saklanabilir kararı verir.</li>
-<li>Veri tipleri verilerin bilgisayar üzerinde ki bir modellemesi gibidir.Her programlama dilinde veri tipleri vardır ve bu programlama dilleri bu veri tiplerini farklı şekillerde yorumlayabilir.</li>
-<li>Java type-safe (tip-güvenli) bir dil olduğundan bir değişken oluştururken bu değişkenin tipini belirtmek zorundayız.<br>
-</li>
-<li>Java'da iki çeşit veri tipi vardır.
-
-<ul>
-<li><strong>Primitive Veri Tipi</strong></li>
-<li><strong>Referans Veri Tipi</strong></li>
+<li>Koleksiyonlara veri eklerken ; koleksiyonun veri tipine göre veri ekleyebiliriz.</li>
+<li>Derleme anında veri tipi denetimi yapılmaz.</li>
 </ul>
 </li>
 </ul>
 
 <h2>
-<a id="primitive-İlkel-veri-tipi" class="anchor" href="#primitive-%C4%B0lkel-veri-tipi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Primitive (İlkel) Veri Tipi:</h2>
+<a id="collections-interface-koleksiyon-arayüzü" class="anchor" href="#collections-interface-koleksiyon-aray%C3%BCz%C3%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collections Interface (Koleksiyon Arayüzü)</h2>
+
+<p><code>Collection</code> arayüzü koleksiyon arabirimleri içerisinde bulunan bu arayüz hiyerarşik olarak en tepede bulunan birimdir.<strong>Java.util</strong> paketi içerisinde bulunan bu arayüz , bize birkaç arayüz ve bunlar altında bulunan sınıfları sunar.</p>
+
+<p><img src="http://2.bp.blogspot.com/-wHhWy9drvRg/UBDARrz-LGI/AAAAAAAAAD4/j2M-W98FaZ0/s1600/java-collection.jpg" alt="Hiyerarşik Düzen"></p>
 
 <ul>
-<li>Bir anahtar kelime ile dil tarafından önceden tanımlanmış ve adlandırılmıştır.</li>
-<li>Java'da 8 primitive tip desteklenir.Bunlar ;
+<li>
+<strong>Collection</strong> : Collection interface'inin hiyerarşik olarak en tepesinde bulunan , en genel sınıftır.</li>
+<li>
+<strong>List</strong> : Liste yapısını örnek alır.İçerisinden bir elemandan birden fazla bulundurmaya izin verir.Elemanları sıralı biçimde tutar.</li>
+<li>
+<strong>Set</strong> : İçinde saklanan elemanlar <strong>sırarız</strong> biçimde tutulur. İçerisinden bir elemandan birden fazla bulundurmaya izin vermez.</li>
+<li>
+<strong>SortedSet</strong> : Verileri sıralı olarak tutar.İçerisinden bir elemandan birden fazla bulundurmaya izin vermez.</li>
+<li>
+<strong>Queue</strong> : Kuyruk yapısını benimseyen koleksiyon tipidir. Liste türünden türetilmiştir.Ama indis değerleriyle işlem yapmaz.Bu öelliğiyle liste türünden ayrılır.</li>
+<li>
+<strong>Map</strong> Elemanlarla bunlara karşılık verilen anahtar değerleriyle eşleştiren arayüzdür . Tekrar eden bir anahtar bulundurmaz. Grafikten de görüleceği gibi Map farklı yerde gösterilmiştir. Map arayüzü koleksiyon arayüzü ile benzerlik gösterir.Ancak Map arayüzünün elemanlarının her birini Unique bir anahtar değeriyle saklaması onu koleksiyonlardan ayırır.</li>
+<li>
+<strong>SortedMap</strong> :Map arayüzünün özelliklerin taşır.Map'ten farkı anahtar değerleri artan bir sırada saklanır.</li>
+</ul>
+
+<p>**Koleksiyon sınıfları ortak olarak birtakım metodlar kullanır.Metodlar bazı sınıflarda farklılık gösterebilir ama genel olarak aynıdır.</p>
 
 <ul>
 <li>
-<strong>byte</strong>: en küçük tamsayı primitive tiptir. 8 bit uzunluğundadır.<strong>-128</strong> ile <strong>127</strong>arasındadır. Default değeri <strong>0</strong>'dır.Tanımlamasına örnek olarak :
-<code>byte b = 100</code>
-</li>
+<strong>add()</strong> : Koleksiyon nesnesine referans verilen elemanı ekler.</li>
 <li>
-<strong>short</strong>: 16 bit uzunluğundadır. <strong>-32,768</strong> ile  <strong>32,767</strong> aralığındadır. Default değeri <strong>0</strong>'dır.Tanımlamasına örnek olarak:<code>short s = 10000</code>
-</li>
+<strong>remove()</strong> : Koleksiyon nesnesine referans verilen elemanı siler.</li>
 <li>
-<strong>int</strong>: 32 bit uzunluğundadır. <strong>- 2,147,483,648.</strong> ile <strong>2,147,483,647.</strong> aralığındadır.Default değeri 0'dır.Tanımlamasına örnek olarak : <code>int i = 100000</code>
-</li>
+<strong>size()</strong> : Koleksiyon nesnesindeki eleman sayısını verir.</li>
 <li>
-<strong>long</strong> 64 bit uzunluğundadır. <strong>-9,223,372,036,854,775,808.</strong> ile <strong>9,223,372,036,854,775,807</strong> aralığındadır.Default değeri 0L'dir. Tanımlamasına örnek olarak : <code>long a = 100000L</code>
-</li>
+<strong>isEmpty()</strong> : Koleksiyon nesnesinin boş olup olmadığını kontrol eder.Boolean değer döner.</li>
 <li>
-<strong>float</strong> : Kesirli sayıların gerekli olduğu durumlarda kullanılırlar.32 bit uzunluğundadır. Default değeri : <strong>0.0f.</strong>'dir.Tanımlamasına örnek olarak : <code>float f = 234.5f</code>
-</li>
+<strong>contains()</strong> : Koleksiyon nesnesi içerisinden referans olarak belirtilen elemanı arar.Booean değer döner.</li>
 <li>
-<strong>double</strong> : Kesirli sayıların gerekli olduğu durumlarda kullanılırlar.64 bit uzunluğundadır. Default olarak : <strong>0.0d.</strong>'dir. Tanımlamasına örnek olarak : <code>double d = 123.4</code>
-</li>
-<li>
-<strong>boolean</strong> : Bilgi bitini temsil eder. True ve false olarak alabileceği iki değeri vardır. Default değeri <strong>false</strong>'dur. Tanımlamasına örnek olarak : <code>boolean one = true</code>.Bu arada bilmekte yarar var java'da true ve false 0 ve 1 değildir. </li>
-<li>
-<strong>char</strong> : Java'da karakterleri char veri tipiyle saklarız.Yalnız Java'da bu char veri tipi 16 bit'tir.Diğer dillerde 8 bit'tir. Yani bu veri tipi 16 bit Unicode'dur.</li>
-</ul>
-</li>
+<strong>iterator()</strong> : Koleksiyon nesnesi iterasyon nesnesine referans olarak göndermeye yarar.</li>
 </ul>
 
-<p>Son olarak <strong>Java gibi nesne yönelimli programlama dillerinde veri tiplerinin hepsi birer sınıftır.Bu primitive tipler çok sık kullanıldığından Java bu veri tiplerine onlara ait nesneler oluşturmaksızın kullanılması için bir ayrıcalık tanır.</strong></p>
-
-<table>
-<thead>
-<tr>
-<th>İlkel Veri tipi</th>
-<th>Uzunluk</th>
-<th>Sınıf</th>
-<th>Varsayılan Değer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>byte</td>
-<td>8 bit</td>
-<td>Btye</td>
-<td>0</td>
-</tr>
-<tr>
-<td>short</td>
-<td>16 bit</td>
-<td>Short</td>
-<td>0</td>
-</tr>
-<tr>
-<td>int</td>
-<td>32 bit</td>
-<td>Integer</td>
-<td>0</td>
-</tr>
-<tr>
-<td>long</td>
-<td>64 bit</td>
-<td>Long</td>
-<td>0L</td>
-</tr>
-<tr>
-<td>float</td>
-<td>32 bit</td>
-<td>Float</td>
-<td>0.0F</td>
-</tr>
-<tr>
-<td>double</td>
-<td>64 bit</td>
-<td>Double</td>
-<td>0.0D</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>1 bit</td>
-<td>Boolean</td>
-<td>false</td>
-</tr>
-<tr>
-<td>char</td>
-<td>16 bit</td>
-<td>Character</td>
-<td>‘\u0000’</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="referans-referance-veri-tipi" class="anchor" href="#referans-referance-veri-tipi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Referans (Referance) Veri Tipi:</h2>
-
 <h1>
-<a id="todo-1" class="anchor" href="#todo-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
+<a id="iterator" class="anchor" href="#iterator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Iterator</h1>
 
-<h1>
-<a id="java-literalsdeğişmezleri" class="anchor" href="#java-literalsde%C4%9Fi%C5%9Fmezleri" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java Literals(Değişmezleri)</h1>
+<ul>
+<li>Iterator() metodu koleksiyon nesnelerini yinelememizi sağlar.</li>
+</ul>
 
       <footer class="site-footer">
 
