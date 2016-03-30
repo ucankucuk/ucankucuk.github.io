@@ -17,82 +17,158 @@
 
     <section class="main-content">
       <h1>
-<a id="java-collectionsjava-koleksiyonları" class="anchor" href="#java-collectionsjava-koleksiyonlar%C4%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java Collections(Java Koleksiyonları)</h1>
-
-<p>Java koleksiyonları : Java’da bir koleksiyon (collection - bazen container, ambar diye adlandırılır) nesnelerden olusan bir
-topluluğu bir arada tutan bir yapıdır.Yazılım geliştirirken bazen tek bir değişken içerisinde birden fazla eleman tutmak isteyebiliriz.Bunun gibi durumlarda Java'nın <code>Collection</code> sınıfını kullanırız.Bu sınıf : <strong>veri depolama</strong>  ,depolanan veriyi <strong>çekme</strong> , veriyi  <strong>işlemek</strong> ve depolanan veriler içerisinde veri <strong>aramak</strong> gibi işlemler için kullanılır.Bu sınıflar içerisinden depolanan veri <strong>sıralı</strong> veya <strong>sırasız</strong> olabilir.Ayrıca aynı öğe bazı koleksiyonlarda <strong>birden çok kez</strong> <strong>bulunabilir</strong>, bazılarında <strong>bulunamaz</strong>.</p>
-
-<p>Java koleksiyonlarının avantajları olduğu gibi dezavantajları da vardır.</p>
+<a id="java-stringbuilder--stringbuffer" class="anchor" href="#java-stringbuilder--stringbuffer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java StringBuilder &amp; StringBuffer</h1>
 
 <ul>
-<li>
-<strong>Avantajları</strong>:
-
-<ul>
-<li>Verileri tek bir değişkende toplamamızı ve bu toplanan verilerin işlenmesinde kolaylık sağlar.</li>
-<li>Yazılımcı , koleksiyon sınıf içerisinde ki algoritmaları kullanarak yeni algoritma yazmak zorunda kalmaz.Bu sayede yazılım kolay anlaşılabilir ve tekrar kullanılabilir <strong>(software reuse)</strong> olmasını sağlar.</li>
-<li>Yazılımcıya performans kaybı yaşatmadan hatta performansı arttıran kullanışlı algoritma ve veri yapıları sağlar.</li>
-<li>Belli bir boyutları yoktur.İçerisine veri ekleyip çıkardıkça boyutları değişir.</li>
-<li>Bu özelliği ile Arrays sınıfından öne geçer.Çünkü Java'da diziler önceden boyutlandırılır. Boyutundan fazla eleman eklememize olanak yoktur.</li>
-</ul>
-</li>
-<li>
-<strong>Dezavantajları</strong> : 
-
-<ul>
-<li>Koleksiyonlara veri eklerken ; koleksiyonun veri tipine göre veri ekleyebiliriz.</li>
-<li>Derleme anında veri tipi denetimi yapılmaz.</li>
-</ul>
-</li>
-</ul>
-
-<h2>
-<a id="collections-interface-koleksiyon-arayüzü" class="anchor" href="#collections-interface-koleksiyon-aray%C3%BCz%C3%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collections Interface (Koleksiyon Arayüzü)</h2>
-
-<p><code>Collection</code> arayüzü koleksiyon arabirimleri içerisinde bulunan bu arayüz hiyerarşik olarak en tepede bulunan birimdir.<strong>Java.util</strong> paketi içerisinde bulunan bu arayüz , bize birkaç arayüz ve bunlar altında bulunan sınıfları sunar.</p>
-
-<p><img src="http://2.bp.blogspot.com/-wHhWy9drvRg/UBDARrz-LGI/AAAAAAAAAD4/j2M-W98FaZ0/s1600/java-collection.jpg" alt="Hiyerarşik Düzen"></p>
-
-<ul>
-<li>
-<strong>Collection</strong> : Collection interface'inin hiyerarşik olarak en tepesinde bulunan , en genel sınıftır.</li>
-<li>
-<strong>List</strong> : Liste yapısını örnek alır.İçerisinden bir elemandan birden fazla bulundurmaya izin verir.Elemanları sıralı biçimde tutar.</li>
-<li>
-<strong>Set</strong> : İçinde saklanan elemanlar <strong>sırarız</strong> biçimde tutulur. İçerisinden bir elemandan birden fazla bulundurmaya izin vermez.</li>
-<li>
-<strong>SortedSet</strong> : Verileri sıralı olarak tutar.İçerisinden bir elemandan birden fazla bulundurmaya izin vermez.</li>
-<li>
-<strong>Queue</strong> : Kuyruk yapısını benimseyen koleksiyon tipidir. Liste türünden türetilmiştir.Ama indis değerleriyle işlem yapmaz.Bu öelliğiyle liste türünden ayrılır.</li>
-<li>
-<strong>Map</strong> Elemanlarla bunlara karşılık verilen anahtar değerleriyle eşleştiren arayüzdür . Tekrar eden bir anahtar bulundurmaz. Grafikten de görüleceği gibi Map farklı yerde gösterilmiştir. Map arayüzü koleksiyon arayüzü ile benzerlik gösterir.Ancak Map arayüzünün elemanlarının her birini Unique bir anahtar değeriyle saklaması onu koleksiyonlardan ayırır.</li>
-<li>
-<strong>SortedMap</strong> :Map arayüzünün özelliklerin taşır.Map'ten farkı anahtar değerleri artan bir sırada saklanır.</li>
-</ul>
-
-<p>**Koleksiyon sınıfları ortak olarak birtakım metodlar kullanır.Metodlar bazı sınıflarda farklılık gösterebilir ama genel olarak aynıdır.</p>
-
-<ul>
-<li>
-<strong>add()</strong> : Koleksiyon nesnesine referans verilen elemanı ekler.</li>
-<li>
-<strong>remove()</strong> : Koleksiyon nesnesine referans verilen elemanı siler.</li>
-<li>
-<strong>size()</strong> : Koleksiyon nesnesindeki eleman sayısını verir.</li>
-<li>
-<strong>isEmpty()</strong> : Koleksiyon nesnesinin boş olup olmadığını kontrol eder.Boolean değer döner.</li>
-<li>
-<strong>contains()</strong> : Koleksiyon nesnesi içerisinden referans olarak belirtilen elemanı arar.Booean değer döner.</li>
-<li>
-<strong>iterator()</strong> : Koleksiyon nesnesi iterasyon nesnesine referans olarak göndermeye yarar.</li>
+<li>StringBuilder nesneleri değiştirilebilir olması haricinde String nesnelerine benzer.</li>
+<li>StringBuilder karakter dizisi içeren değişken uzunlukta ki diziler gibi davranır.</li>
+<li>Herhangi bir noktada metod çağırımıyla uzunluk ve dizi içeriği değiştirilebilir.</li>
+<li>Örneğin StringBuilder nesnelerinde <strong>append() , insert(), reverse() , replace()</strong> metodları vardır.</li>
+<li>Çok sayıda dizileri bağlamada , StringBuilder nesnelerini kullanmak daha verimlidir.</li>
 </ul>
 
 <h1>
-<a id="iterator" class="anchor" href="#iterator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Iterator</h1>
+<a id="length--capacity" class="anchor" href="#length--capacity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Length &amp; Capacity</h1>
 
 <ul>
-<li>Iterator() metodu koleksiyon nesnelerini yinelememizi sağlar.</li>
+<li>StingBuilder sınıfı length() metoduna sahiptir.Bu özelliğiyle String sınıfına benzerdir.Ayrıca StringBuilder'ın <strong>capacity()</strong> metodu vardır.Bu metod StringBuilder'ın kapasitesini geri döndürür.Bu özellik String sınıfında yoktur.</li>
 </ul>
+
+<table>
+<thead>
+<tr>
+<th>Yapıcı(Constructor)</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>StringBuilder()</strong></td>
+<td>Boş bir StringBuilder oluşturur(Kapasitesi : 16)</td>
+</tr>
+<tr>
+<td><strong>StringBuilder(CharSequence cs)</strong></td>
+<td>CharSequence içeriğinin aynısını 16 boş elemanlı haliyle bir</td>
+</tr>
+<tr>
+<td></td>
+<td>StringBuilder oluştururur.</td>
+</tr>
+<tr>
+<td><strong>StringBuilder(int initCapacity)</strong></td>
+<td>initCapacity uzunluğu kadar kapasiteli bir StringBuilder</td>
+</tr>
+<tr>
+<td></td>
+<td>oluşturur.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CapacityOfStringBuilder</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">StringBuilder</span> sb <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">StringBuilder</span>();<span class="pl-c">//16 Kapasiteli StringBuilder oluşturduk.</span>
+        sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span>Greetings<span class="pl-pds">"</span></span>);<span class="pl-c">//9 karakterlik bir String ekledik.</span>
+    }
+
+}</pre></div>
+
+<ul>
+<li>StringBuilder'ın durumu:</li>
+<li><img src="https://docs.oracle.com/javase/tutorial/figures/java/objects-stringBuffer.gif" alt="ucankucuk.github.io" title="ucankucuk.github.io"></li>
+<li>StringBuilder sınıfının String sınıfından farklı bazı metodları vardır.Bunlar:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Metod</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>void setLength(int newLength)</strong></td>
+<td>Karakter dizisinin uzunluğunu ayarlar.</td>
+</tr>
+<tr>
+<td><strong>void ensureCapacity(int minCapacity)</strong></td>
+<td>Stringbuilder'ın kapasitesinin en az minCapacity kadar</td>
+</tr>
+<tr>
+<td></td>
+<td>olmasını sağlar</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>StringBuilder sınıfı <strong>setLength(int newLength)</strong> ile karakter dizisinin uzunluğunu ayarlarken  newlength değeri kendi uzunluğundan büyük olursa dizinin sonuna eksik kadar null değeri ekler.Eğer newlength  değeri kendi uzunluğundan kısaysa da dizinin sonundan gerekilen kadar karakteri siler.</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SetLengthMetodExample</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">StringBuilder</span> sb <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">StringBuilder</span>(); <span class="pl-c">// 16 kapasiteli StringBuilder nesnesi oluşturuldu.</span>
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Boş StringBuilder nesnesini kapasitesi = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>capacity());
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Boş StringBuilder nesnesinin uzunluğu = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>length());
+        sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span>0123456789ABCDEF<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Eklenen = 0123456789ABCDEF<span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> Eklemeden sonra uzunluk = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>length());
+        sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span>UTKU<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>StringBuilder nesnesini içeriği = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Son eklemeden sonra uzunluk = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>length());
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Son eklemeden sonra kapasite = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>capacity());
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * 16 kapasitesindeki sb nesnesine 4 karakter daha eklediğimizde hata vermedi.</span>
+<span class="pl-c">         * Çünkü StringBuilder otomatik olarak kapsiteyi arttırdı.</span>
+<span class="pl-c">         */</span>
+    }
+
+}</pre></div>
+
+<ul>
+<li>
+<p><strong>Ekran Çıktısı</strong>:</p>
+
+<ul>
+<li>Boş StringBuilder nesnesini kapasitesi = 16</li>
+<li>Boş StringBuilder nesnesinin uzunluğu = 0</li>
+<li>Eklenen = 0123456789ABCDEF Eklemeden sonra uzunluk = 16</li>
+<li>StringBuilder nesnesini içeriği = 0123456789ABCDEFUTKU</li>
+<li>Son eklemeden sonra uzunluk = 20</li>
+<li>Son eklemeden sonra kapasite =34 </li>
+</ul>
+</li>
+<li><p>Ayrıca <strong>append(), insert(), setLength()</strong> metodları çağırıldığından kapasite otomatik olarak büyür.</p></li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IncreasedAutomatically</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">StringBuilder</span> sb <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">StringBuilder</span>();
+        sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span>0123456789ABCDEF<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>StringBuilding uzunluğu = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>length() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> StringBuilder kapasitesi = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>capacity());
+        sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span>UTKU<span class="pl-pds">"</span></span>);
+        sb<span class="pl-k">.</span>setLength(<span class="pl-c1">5</span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out
+                .println(<span class="pl-s"><span class="pl-pds">"</span>Değişiklikten sonraki StringBuilder nesnesi = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>Değişiklikten sonraki kapasite = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>capacity() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>Değişiklikten sonraki uzunluk = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>length());
+        <span class="pl-c">/* insert() metodu ile belirlenen yere ekleme yapabiliriz. */</span>
+        sb<span class="pl-k">.</span>insert(<span class="pl-c1">5</span>, <span class="pl-s"><span class="pl-pds">"</span>5<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Eklemeden sonra StringBuilder nesnesi = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>Eklemeden sonraki kapasite = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>capacity() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>Eklemeden sonraki uzunluk = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> sb<span class="pl-k">.</span>length());
+    }
+}</pre></div>
+
+<ul>
+<li>Aşağıda <code>StringBuilder</code> sınıfının metodları yer almaktadır.</li>
+</ul>
+
+<p><img src="https://lh5.googleusercontent.com/_xRlML9Wz_ZvkDSqqWr_0u_CPPJa-_1hMRRCOs8U457Sp8kLovNSbADWmGYXf6cE97r_Eo-PZTEMaKCRwUb6NmZn-XNUNfLYRd5hdoSX8-FiYedrfNc" alt="ucankucuk.github.io" title="ucankucuk.github.io"></p>
 
       <footer class="site-footer">
 
