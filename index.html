@@ -17,6 +17,498 @@
 
     <section class="main-content">
       <h1>
+<a id="java-collectionsjava-koleksiyonları" class="anchor" href="#java-collectionsjava-koleksiyonlar%C4%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java Collections(Java Koleksiyonları)</h1>
+
+<p>Java koleksiyonları : Java’da bir koleksiyon (collection - bazen container, ambar diye adlandırılır) nesnelerden olusan bir
+topluluğu bir arada tutan bir yapıdır.Yazılım geliştirirken bazen tek bir değişken içerisinde birden fazla eleman tutmak isteyebiliriz.Bunun gibi durumlarda Java'nın <code>Collection</code> sınıfını kullanırız.Bu sınıf : <strong>veri depolama</strong>  ,depolanan veriyi <strong>çekme</strong> , veriyi  <strong>işlemek</strong> ve depolanan veriler içerisinde veri <strong>aramak</strong> gibi işlemler için kullanılır.Bu sınıflar içerisinden depolanan veri <strong>sıralı</strong> veya <strong>sırasız</strong> olabilir.Ayrıca aynı öğe bazı koleksiyonlarda <strong>birden çok kez</strong> <strong>bulunabilir</strong>, bazılarında <strong>bulunamaz</strong>.</p>
+
+<p>Java koleksiyonlarının avantajları olduğu gibi dezavantajları da vardır.</p>
+
+<ul>
+<li>
+<strong>Avantajları</strong>:
+
+<ul>
+<li>Verileri tek bir değişkende toplamamızı ve bu toplanan verilerin işlenmesinde kolaylık sağlar.</li>
+<li>Yazılımcı , koleksiyon sınıf içerisinde ki algoritmaları kullanarak yeni algoritma yazmak zorunda kalmaz.Bu sayede yazılım kolay anlaşılabilir ve tekrar kullanılabilir <strong>(software reuse)</strong> olmasını sağlar.</li>
+<li>Yazılımcıya performans kaybı yaşatmadan hatta performansı arttıran kullanışlı algoritma ve veri yapıları sağlar.</li>
+<li>Belli bir boyutları yoktur.İçerisine veri ekleyip çıkardıkça boyutları değişir.</li>
+<li>Bu özelliği ile Arrays sınıfından öne geçer.Çünkü Java'da diziler önceden boyutlandırılır. Boyutundan fazla eleman eklememize olanak yoktur.</li>
+</ul>
+</li>
+<li>
+<strong>Dezavantajları</strong> : 
+
+<ul>
+<li>Koleksiyonlara veri eklerken ; koleksiyonun veri tipine göre veri ekleyebiliriz.</li>
+<li>Derleme anında veri tipi denetimi yapılmaz.</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="collections-interface-koleksiyon-arayüzü" class="anchor" href="#collections-interface-koleksiyon-aray%C3%BCz%C3%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collections Interface (Koleksiyon Arayüzü)</h2>
+
+<p><code>Collection</code> arayüzü koleksiyon arabirimleri içerisinde bulunan bu arayüz hiyerarşik olarak en tepede bulunan birimdir.<strong>Java.util</strong> paketi içerisinde bulunan bu arayüz , bize birkaç arayüz ve bunlar altında bulunan sınıfları sunar.</p>
+
+<p><img src="http://2.bp.blogspot.com/-wHhWy9drvRg/UBDARrz-LGI/AAAAAAAAAD4/j2M-W98FaZ0/s1600/java-collection.jpg" alt="Hiyerarşik Düzen"></p>
+
+<ul>
+<li>
+<strong>Collection</strong> : Collection interface'inin hiyerarşik olarak en tepesinde bulunan , en genel sınıftır.</li>
+<li>
+<strong>List</strong> : Liste yapısını örnek alır.İçerisinden bir elemandan birden fazla bulundurmaya izin verir.Elemanları sıralı biçimde tutar.</li>
+<li>
+<strong>Set</strong> : İçinde saklanan elemanlar <strong>sırarız</strong> biçimde tutulur. İçerisinden bir elemandan birden fazla bulundurmaya izin vermez.</li>
+<li>
+<strong>SortedSet</strong> : Verileri sıralı olarak tutar.İçerisinden bir elemandan birden fazla bulundurmaya izin vermez.</li>
+<li>
+<strong>Queue</strong> : Kuyruk yapısını benimseyen koleksiyon tipidir. Liste türünden türetilmiştir.Ama indis değerleriyle işlem yapmaz.Bu öelliğiyle liste türünden ayrılır.</li>
+<li>
+<strong>Map</strong> Elemanlarla bunlara karşılık verilen anahtar değerleriyle eşleştiren arayüzdür . Tekrar eden bir anahtar bulundurmaz. Grafikten de görüleceği gibi Map farklı yerde gösterilmiştir. Map arayüzü koleksiyon arayüzü ile benzerlik gösterir.Ancak Map arayüzünün elemanlarının her birini Unique bir anahtar değeriyle saklaması onu koleksiyonlardan ayırır.</li>
+<li>
+<strong>SortedMap</strong> :Map arayüzünün özelliklerin taşır.Map'ten farkı anahtar değerleri artan bir sırada saklanır.</li>
+</ul>
+
+<p>**Koleksiyon sınıfları ortak olarak birtakım metodlar kullanır.Metodlar bazı sınıflarda farklılık gösterebilir ama genel olarak aynıdır.</p>
+
+<ul>
+<li>
+<strong>add()</strong> : Koleksiyon nesnesine referans verilen elemanı ekler.</li>
+<li>
+<strong>remove()</strong> : Koleksiyon nesnesine referans verilen elemanı siler.</li>
+<li>
+<strong>size()</strong> : Koleksiyon nesnesindeki eleman sayısını verir.</li>
+<li>
+<strong>isEmpty()</strong> : Koleksiyon nesnesinin boş olup olmadığını kontrol eder.Boolean değer döner.</li>
+<li>
+<strong>contains()</strong> : Koleksiyon nesnesi içerisinden referans olarak belirtilen elemanı arar.Booean değer döner.</li>
+<li>
+<strong>iterator()</strong> : Koleksiyon nesnesi iterasyon nesnesine referans olarak göndermeye yarar.</li>
+</ul>
+
+<h1>
+<a id="iterator" class="anchor" href="#iterator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Iterator</h1>
+
+<ul>
+<li>Iterator() metodu koleksiyon nesnelerini yinelememizi sağlar.</li>
+<li>Iterator : koleksiyon nesnesi altındaki elemanlar arasında başlangıçtan sonuna kadar tek tek geçiş yapmamızı, elemanları güvenle silmemizi sağlar.</li>
+<li>Iterator arayüzünün metodlar:
+
+<ul>
+<li>
+<strong>hasNext</strong> : Koleksiyon nesnesinin bir sonraki elemanının var olup olmadığını kontrol eder.Bir sonraki eleman varsa <strong>true</strong> yoksa <strong>false</strong> döner.</li>
+<li>
+<strong>next</strong> : Koleksiyon nesnesinin bir sonraki elemana ulaşmasını sağlar.</li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a id="setkÜmeler" class="anchor" href="#setk%C3%9Cmeler" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SET(KÜMELER)</h1>
+
+<ul>
+<li>Collection interface'ini extends eder.(Miras alır).</li>
+<li>Verileri sıralı bir şekilde tutmaz ayrıca bir elemandan sadece bir tane bulunur.</li>
+<li>Set arayüzünü öğesi <strong>HashSet</strong>'tir.</li>
+</ul>
+
+<h2>
+<a id="hashset" class="anchor" href="#hashset" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HashSet</h2>
+
+<ul>
+<li>Set koleksiyonun bir örneğidir.Elemanların sıralı olması şartı yoktur.(Bu nedenle erişim sırası belirsizdir.)</li>
+<li>Tekrarlı eleman içermez.</li>
+<li>HashSet Kullanımına bir örnek:</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.HashSet</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.util.Iterator</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">HashSetExample</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-k">HashSet&lt;<span class="pl-smi">String</span>&gt;</span> hashSet <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">HashSet&lt;<span class="pl-smi">String</span>&gt;</span>(); <span class="pl-c">// HashSet koleksiyonu</span>
+                                                            <span class="pl-c">// oluşturuldu.</span>
+
+        <span class="pl-c">// HashSet nesnesine elemanlar eklendi.</span>
+        hashSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Ali<span class="pl-pds">"</span></span>);
+        hashSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Mehmet<span class="pl-pds">"</span></span>);
+        hashSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Ahmet<span class="pl-pds">"</span></span>);
+        hashSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Veli<span class="pl-pds">"</span></span>);
+        hashSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Ali<span class="pl-pds">"</span></span>); <span class="pl-c">// Aynı eleman bir daha eklendi.</span>
+        hashSet<span class="pl-k">.</span>add(<span class="pl-c1">null</span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(hashSet);
+
+        <span class="pl-c">// For döngüsüyle kullanım örneği</span>
+        <span class="pl-k">for</span> (<span class="pl-smi">String</span> isim <span class="pl-k">:</span> hashSet) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(isim);
+        }
+
+    }
+
+}</pre></div>
+
+<ul>
+<li>Programın çıktısı :
+
+<ul>
+<li>[null, Ahmet, Veli, Mehmet, Ali]</li>
+<li>null</li>
+<li>Ahmet</li>
+<li>Veli</li>
+<li>Mehmet</li>
+<li>Ali</li>
+<li>[Ahmet, Veli, Mehmet, Ali]</li>
+</ul>
+</li>
+<li>Örnekte görüldüğü gibi aynı eleman hashset'e eklendiğinde önceki elemanı ezer ve hashset'te bir tane bulunur.</li>
+<li>
+<strong>remove() metodu belirtilen eleman varsada yoksada **çalışır</strong>.Varsa siler yoksa false değeri döndürür.</li>
+<li>Aynı elemanın tekrar eklemeye çalışılması erişim sırasını etkilemez.</li>
+</ul>
+
+<h2>
+<a id="linkedhashset" class="anchor" href="#linkedhashset" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LinkedHashSet</h2>
+
+<ul>
+<li>HashSet ile benzerlik gösterir.Farklı yanı : HashSet'te öğelere erişim sırası belirsizdi.LinkedHashSet'te ise öğeler birbirine <strong>çift yönlü</strong> bağlıdır.</li>
+<li>Elemanlar artan sırada sıralı değil giriş sırasına göre sıralıdır.</li>
+<li>Tekrarlı eleman bulunmaz.</li>
+<li>LinkedHashSet örneği : </li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.*</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">LinkedHashSetExample</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> <span class="pl-v">args</span>[]) {
+        <span class="pl-c">// create a hash set</span>
+        <span class="pl-k">LinkedHashSet&lt;<span class="pl-smi">String</span>&gt;</span> hs <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">LinkedHashSet&lt;<span class="pl-smi">String</span>&gt;</span>();
+        <span class="pl-c">// add elements to the hash set</span>
+        hs<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>);
+        hs<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>);
+        hs<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>D<span class="pl-pds">"</span></span>);
+        hs<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>E<span class="pl-pds">"</span></span>);
+        hs<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>C<span class="pl-pds">"</span></span>);
+        hs<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>F<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(hs);
+    }
+}</pre></div>
+
+<ul>
+<li>Ekran çıktısı :
+
+<ul>
+<li>[B, A, D, E, C, F]</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="sortedset" class="anchor" href="#sortedset" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SortedSet</h2>
+
+<ul>
+<li>Set koleksiyonun alt arayüzüdür.</li>
+<li>HashSet ile benzerdir.Farklı yanı : elemanların sıralı tutulmasıdır.Bu arayüzün kullanılan öğesi <strong>TreeSet</strong>'tir.</li>
+</ul>
+
+<h2>
+<a id="treeset" class="anchor" href="#treeset" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TreeSet</h2>
+
+<ul>
+<li>SortedSet arayüzünün alt sınıfıdır.</li>
+<li>HashSet ile aynı metodları kullanır.</li>
+<li>Tip kontrolü yapılır.Yani TreeSet'e içerisindeki elemanların tipinden farklı bir tipte eleman eklemeye çalışırsak <strong>derleme anında hata verecektir.</strong>
+</li>
+<li>TreeSet örnekleri:</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.TreeSet</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TreeSetExample</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-k">TreeSet&lt;<span class="pl-smi">String</span>&gt;</span> treeSet <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">TreeSet&lt;<span class="pl-smi">String</span>&gt;</span>();
+        treeSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>istanbul<span class="pl-pds">"</span></span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>ankara<span class="pl-pds">"</span></span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>izmir<span class="pl-pds">"</span></span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(treeSet);
+    }
+
+}</pre></div>
+
+<ul>
+<li>Ekran çıktısı:
+
+<ul>
+<li>[ankara, istanbul, izmir]</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.TreeSet</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TreeSetExample</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-k">TreeSet&lt;<span class="pl-smi">Integer</span>&gt;</span> treeSet <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">TreeSet&lt;<span class="pl-smi">Integer</span>&gt;</span>();
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">34</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">35</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">06</span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(treeSet);
+    }
+
+}</pre></div>
+
+<ul>
+<li>
+<p>Ekran çıktısı :</p>
+
+<ul>
+<li>[6, 34, 35]</li>
+</ul>
+</li>
+<li><p><strong>TreeSet HashSet'ten farklı olarak aşağıdaki metodları içerir.</strong></p></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>first() : Object</strong></td>
+<td>Koleksiyon öğesinin 1.elemanını verir.</td>
+</tr>
+<tr>
+<td><strong>last() : Objest</strong></td>
+<td>Koleksiyon öğesinin son elemanını verir.</td>
+</tr>
+<tr>
+<td><strong>headSet(Object toElement)</strong></td>
+<td>Koleksiyon öğesindeki toElement'ten önceki elemanları verir</td>
+</tr>
+<tr>
+<td><strong>subSet(Object ilk Object son)</strong></td>
+<td>İlk'den son'a kadar olan elemanları verir(son dahil değil)</td>
+</tr>
+<tr>
+<td><strong>tailSet(Object fromElement)</strong></td>
+<td>Koleksiyon öğesindeki fromElement'i ve sonraki elemanları verir.</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>Metodun kullanımıyla ilgili örnekler:</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.TreeSet</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TreeSetMethods</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-k">TreeSet&lt;<span class="pl-smi">Integer</span>&gt;</span> treeSet <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">TreeSet&lt;<span class="pl-smi">Integer</span>&gt;</span>();
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">34</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">35</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">07</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">66</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">38</span>);
+        treeSet<span class="pl-k">.</span>add(<span class="pl-c1">28</span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(treeSet);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(treeSet<span class="pl-k">.</span>first());
+        <span class="pl-smi">System</span><span class="pl-k">.</span>err<span class="pl-k">.</span>println(treeSet<span class="pl-k">.</span>last());
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(treeSet<span class="pl-k">.</span>subSet(<span class="pl-c1">28</span>, <span class="pl-c1">66</span>));
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(treeSet<span class="pl-k">.</span>tailSet(<span class="pl-c1">07</span>));
+
+    }
+
+}</pre></div>
+
+<ul>
+<li>Ekran Çıktıları :
+
+<ul>
+<li>[7, 28, 34, 35, 38, 66]</li>
+<li>7</li>
+<li>66</li>
+<li>[28, 34, 35, 38]</li>
+<li>[7, 28, 34, 35, 38, 66] </li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a id="list-liste-yapıları" class="anchor" href="#list-liste-yap%C4%B1lar%C4%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LIST (Liste Yapıları)</h1>
+
+<ul>
+<li>Verileri bir dizi halinde depolar.</li>
+<li>Dizilerde olduğu gibi burada da elemanların indis değerleri var.İndis değerleri ile elemanlara erişilebilir , arama yapılabilir.</li>
+<li>Liste yapılarını dizilerden ayıran özellik liste yapılarının boyutlarının önceden ayarlanmış olmamasıdır.Bu nedenle daha kullanışlıdır.</li>
+<li>Kopya eleman bulundurmaya izin verir.</li>
+</ul>
+
+<h2>
+<a id="arraylist" class="anchor" href="#arraylist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ArrayList</h2>
+
+<ul>
+<li>Elemanları bir dizi biçiminde saklar ve boyut eleman eklendikçe büyür.</li>
+<li>Elemanlara indeks değerleriyle erişmek ve silmek mümkün.</li>
+<li>
+<strong>Not</strong> : dizilerden daha avntajlı olmalarına rağmen ; eğer depolanacak veri sayısı belli ve kolay kolay değişmiyorsa ArrayList kullanmak yerine Array kullanmak daha verimli olacaktır.</li>
+<li>ArrayList sınıfı Array'den farklı olarak nesneleri depolayabilir.</li>
+<li>ArrayList kullanımıyla ilgili örnek :</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.*</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ArrayListExample</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> <span class="pl-v">args</span>[]) {
+        <span class="pl-c">// ArrayList oluşturma.</span>
+        <span class="pl-k">ArrayList&lt;<span class="pl-smi">String</span>&gt;</span> list <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ArrayList&lt;<span class="pl-smi">String</span>&gt;</span>();
+
+        <span class="pl-c">// ArrayList nesnesine eleman ekleme.</span>
+        list<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Item1<span class="pl-pds">"</span></span>);
+        list<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Item2<span class="pl-pds">"</span></span>);
+        list<span class="pl-k">.</span>add(<span class="pl-c1">2</span>, <span class="pl-s"><span class="pl-pds">"</span>Item3<span class="pl-pds">"</span></span>); <span class="pl-c">// 2.indise Item3'ü ekledi</span>
+        list<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Item4<span class="pl-pds">"</span></span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>ArrayList içeriği : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> list);
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * ArrayList nesnesi içerisinde arama yapma. Eğer aranan eleman varsa :</span>
+<span class="pl-c">         * metod aranan elemanın indeksini döndürür. Eğer aranan eleman yoksa :</span>
+<span class="pl-c">         * metod -1 değeri döndürür.</span>
+<span class="pl-c">         */</span>
+        <span class="pl-k">int</span> pos <span class="pl-k">=</span> list<span class="pl-k">.</span>indexOf(<span class="pl-s"><span class="pl-pds">"</span>Item2<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Aranan elemanın indeksi : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> pos);
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * ArrayList nesnesinin boş olup olmadığının kontrolü Eğer liste boş</span>
+<span class="pl-c">         * değilse false,boşsa true değerinin döndürür.</span>
+<span class="pl-c">         */</span>
+        <span class="pl-k">boolean</span> check <span class="pl-k">=</span> list<span class="pl-k">.</span>isEmpty();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Kontrol sonucu : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> check);
+
+        <span class="pl-c">// Listenin uzunluğu</span>
+        <span class="pl-k">int</span> size <span class="pl-k">=</span> list<span class="pl-k">.</span>size();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Liste uzunluğu : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> size);
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * Listede eleman var mı kontrolü eğer eleman varsa true , yoksa false</span>
+<span class="pl-c">         * döndür.</span>
+<span class="pl-c">         */</span>
+        <span class="pl-k">boolean</span> element <span class="pl-k">=</span> list<span class="pl-k">.</span>contains(<span class="pl-s"><span class="pl-pds">"</span>Item5<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Arama sonucu : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> element);
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * İndeksi verilen elemanı getirme n elemanlı bir dizi de verilen indis</span>
+<span class="pl-c">         * 0...(n-1) aralığında değilse; derleme sırasında</span>
+<span class="pl-c">         * java.lang.IndexOutOfBoundsException hatası döner.</span>
+<span class="pl-c">         */</span>
+        <span class="pl-smi">String</span> item <span class="pl-k">=</span> list<span class="pl-k">.</span>get(<span class="pl-c1">0</span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Eleman : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> item);
+
+        <span class="pl-c">// Elemanları getirmek için aşağıda 3 yol gösterilmiştir.</span>
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>1.Yol : For döngü kullanarak<span class="pl-pds">"</span></span>);
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> list<span class="pl-k">.</span>size(); i<span class="pl-k">++</span>) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Index: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> i <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> - Item: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> list<span class="pl-k">.</span>get(i));
+        }
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>2.Yol : ForEach döngü kullanarak<span class="pl-pds">"</span></span>);
+        <span class="pl-k">for</span> (<span class="pl-smi">String</span> str <span class="pl-k">:</span> list) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Item is: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> str);
+        }
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>3.Yol : Iterator kullanarak<span class="pl-pds">"</span></span>);
+        <span class="pl-k">for</span> (<span class="pl-k">Iterator&lt;<span class="pl-smi">String</span>&gt;</span> it <span class="pl-k">=</span> list<span class="pl-k">.</span>iterator(); it<span class="pl-k">.</span>hasNext();) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Item is: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> it<span class="pl-k">.</span>next());
+        }
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * Verilen indisdeki elemanı değiştirme. n elemanlı bir dizi de verilen</span>
+<span class="pl-c">         * indis 0...(n-1) aralığında değilse; derleme sırasında</span>
+<span class="pl-c">         * java.lang.IndexOutOfBoundsException hatası döner.</span>
+<span class="pl-c">         */</span>
+        list<span class="pl-k">.</span>set(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>NewItem<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Değişimden sonra : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> list);
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * indeksi verilen elemanı silme n elemanlı bir dizi de verilen indis</span>
+<span class="pl-c">         * 0...(n-1) aralığında değilse; derleme sırasında</span>
+<span class="pl-c">         * java.lang.IndexOutOfBoundsException hatası döner.</span>
+<span class="pl-c">         */</span>
+        list<span class="pl-k">.</span>remove(<span class="pl-c1">1</span>);
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * Verilen elemanı silme. Eğer liste içeriğinde bulunmayan eleman</span>
+<span class="pl-c">         * parametre olarak verilirse derleme sırasında hata alacaktır.</span>
+<span class="pl-c">         */</span>
+        list<span class="pl-k">.</span>remove(<span class="pl-s"><span class="pl-pds">"</span>Item3<span class="pl-pds">"</span></span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Silme işlemlerinden sonra : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> list);
+
+        <span class="pl-c">// Array'den ArrayList'e çevirme.</span>
+        <span class="pl-k">String</span>[] simpleArray <span class="pl-k">=</span> list<span class="pl-k">.</span>toArray(<span class="pl-k">new</span> <span class="pl-smi">String</span>[list<span class="pl-k">.</span>size()]);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Array ArrayList'e çevirildikten sonra: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">Arrays</span><span class="pl-k">.</span>toString(simpleArray));
+    }
+}</pre></div>
+
+<ul>
+<li>Ekran çıktısı:
+
+<ul>
+<li>ArrayList içeriği : [Item1, Item2, Item3, Item4]</li>
+<li>Aranan elemanın indeksi : 1</li>
+<li>Kontrol sonucu : false</li>
+<li>Liste uzunluğu : 4</li>
+<li>Arama sonucu : false</li>
+<li>Eleman : Item1</li>
+<li>Retrieving items with loop using index and size list</li>
+<li>Index: 0 - Item: Item1</li>
+<li>Index: 1 - Item: Item2</li>
+<li>Index: 2 - Item: Item3</li>
+<li>Index: 3 - Item: Item4</li>
+<li>Retrieving items using foreach loop</li>
+<li>Item is: Item1</li>
+<li>Item is: Item2</li>
+<li>Item is: Item3</li>
+<li>Item is: Item4</li>
+<li>Retrieving items using iterator</li>
+<li>Item is: Item1</li>
+<li>Item is: Item2</li>
+<li>Item is: Item3</li>
+<li>Item is: Item4</li>
+<li>Değişimden sonra : [Item1, NewItem, Item3, Item4]</li>
+<li>The final contents of the arraylist are: [Item1, Item4]</li>
+<li>The array created after the conversion of our arraylist is: [Item1, Item4]
+#TODO</li>
+</ul>
+</li>
+</ul>
+
+<h1>
 <a id="java-stringbuilder--stringbuffer" class="anchor" href="#java-stringbuilder--stringbuffer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java StringBuilder &amp; StringBuffer</h1>
 
 <ul>
