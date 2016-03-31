@@ -373,7 +373,7 @@ topluluğu bir arada tutan bir yapıdır.Yazılım geliştirirken bazen tek bir 
 <li>Elemanları bir dizi biçiminde saklar ve boyut eleman eklendikçe büyür.</li>
 <li>Elemanlara indeks değerleriyle erişmek ve silmek mümkün.</li>
 <li>
-<strong>Not</strong> : dizilerden daha avntajlı olmalarına rağmen ; eğer depolanacak veri sayısı belli ve kolay kolay değişmiyorsa ArrayList kullanmak yerine Array kullanmak daha verimli olacaktır.</li>
+<strong>Not</strong> : dizilerden daha avantajlı olmalarına rağmen ; eğer depolanacak veri sayısı belli ve kolay kolay değişmiyorsa ArrayList kullanmak yerine Array kullanmak daha verimli olacaktır.</li>
 <li>ArrayList sınıfı Array'den farklı olarak nesneleri depolayabilir.</li>
 <li>ArrayList kullanımıyla ilgili örnek :</li>
 </ul>
@@ -507,8 +507,195 @@ topluluğu bir arada tutan bir yapıdır.Yazılım geliştirirken bazen tek bir 
 </li>
 </ul>
 
+<h2>
+<a id="linkedlist-bağlı-liste" class="anchor" href="#linkedlist-ba%C4%9Fl%C4%B1-liste" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LinkedList (Bağlı Liste)</h2>
+
+<ul>
+<li>List arayüzünü implemente eder.Bundan dolayı List arayüzünün tüm metodlarını kullanabilir.</li>
+<li>List yapısından farklı olarak ilk eklemanı silme , ilk elemanı ekleme , son elemanı silme , sonelemanı ekleme gibi metodlara sahiptir.Bu metodlara sahip olduğundan dolayı isteğe göre, <strong>stack (yığın -LIFO)</strong>, <strong>queue (kuyruk -FIFO)</strong>, <strong>deque (çifte sonlanmış kuyruk)</strong> 
+yapıları elde edilebilir.</li>
+<li>LinkedList yapısında elemanlar eklenirken aralarından bir bağ konulur. Bu bağ tek yönlü veya çift yönlü olabilir.</li>
+<li>LinkedList metodlarının kullanımıyla ilgili örnek :</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-smi">java.util.LinkedList</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">LinkedListExample</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-k">LinkedList&lt;<span class="pl-smi">String</span>&gt;</span> linkedList <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">LinkedList&lt;<span class="pl-smi">String</span>&gt;</span>();
+        linkedList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>istanbul<span class="pl-pds">"</span></span>);
+        linkedList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>ankara<span class="pl-pds">"</span></span>);
+        linkedList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>izmir<span class="pl-pds">"</span></span>);
+        linkedList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>antalya<span class="pl-pds">"</span></span>);
+        linkedList<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>giresun<span class="pl-pds">"</span></span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>LinkedList içeriği : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> linkedList);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>LinkedLis'in ilk elemanı : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> linkedList<span class="pl-k">.</span>getFirst());
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>LinkedLis'in son elemanı : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> linkedList<span class="pl-k">.</span>getLast());
+        linkedList<span class="pl-k">.</span>addLast(<span class="pl-s"><span class="pl-pds">"</span>trabzon<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>En sona eleman eklendikten sonra LinkedList içeriği : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> linkedList);
+        linkedList<span class="pl-k">.</span>addFirst(<span class="pl-s"><span class="pl-pds">"</span>giresun<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>En başa eleman eklendikten sonra LinkedList içeriği : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> linkedList);
+        linkedList<span class="pl-k">.</span>removeLast();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Son eleman silindikten sonraki LinkedList içeriği : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> linkedList);
+
+    }
+
+}</pre></div>
+
+<ul>
+<li>
+<p>Ekran çıktısı :</p>
+
+<ul>
+<li>LinkedList içeriği : [istanbul, ankara, izmir, antalya, giresun]</li>
+<li>LinkedLis'in ilk elemanı : istanbul</li>
+<li>LinkedLis'in son elemanı : giresun</li>
+<li>En sona eleman eklendikten sonra LinkedList içeriği : [istanbul, ankara, izmir, antalya, giresun, trabzon]</li>
+<li>En başa eleman eklendikten sonra LinkedList içeriği : [giresun, istanbul, ankara, izmir, antalya, giresun, trabzon]</li>
+<li>Son eleman silindikten sonraki LinkedList içeriği : [giresun, istanbul, ankara, izmir, antalya, giresun]</li>
+</ul>
+</li>
+<li><p><strong>Queue (Kuyruk)</strong> : İlk giren çıkar mantığını benimseyen yapıdır. Elemanlar listeye sondan eklenir,silme işlemi listenin başından yapılır.</p></li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+<span class="pl-k">import</span> <span class="pl-smi">java.util.LinkedList</span>;
+
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Queue</span> {
+    <span class="pl-k">LinkedList&lt;<span class="pl-smi">String</span>&gt;</span> linkedList <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">LinkedList&lt;<span class="pl-smi">String</span>&gt;</span>();
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">addElement</span>(<span class="pl-smi">String</span> <span class="pl-v">element</span>){
+        linkedList<span class="pl-k">.</span>addLast(element);
+    }
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">removeElement</span>(<span class="pl-smi">String</span> <span class="pl-v">element</span>){
+        linkedList<span class="pl-k">.</span>removeFirst();
+    }
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">getElement</span>(){
+        <span class="pl-k">return</span> linkedList<span class="pl-k">.</span>getFirst();
+    }
+    <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">isEmpty</span>(){
+        <span class="pl-k">return</span> linkedList<span class="pl-k">.</span>isEmpty();
+    }
+
+}</pre></div>
+
+<ul>
+<li>
+<strong>Stack (Yığıt-Yığın)</strong> : Kuyruk yapısının tam tersi mantık vardır. Elemanlar daima listenin sonuna eklenir ve silme işlemi yığıtın sonundan yapılır.</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.LinkedList</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Stack</span> {
+   <span class="pl-k">LinkedList&lt;<span class="pl-smi">String</span>&gt;</span> linkedList <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">LinkedList&lt;<span class="pl-smi">String</span>&gt;</span>();
+
+   <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">addElementStack</span>(<span class="pl-smi">String</span> <span class="pl-v">element</span>){
+       linkedList<span class="pl-k">.</span>addFirst(element);
+   }
+   <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">firstElementStack</span>(<span class="pl-smi">String</span> <span class="pl-v">element</span>){
+       linkedList<span class="pl-k">.</span>getFirst();
+   }
+   <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">removeElementStack</span>(<span class="pl-smi">String</span> <span class="pl-v">element</span>){
+       linkedList<span class="pl-k">.</span>removeFirst();
+   }
+   <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">isEmpty</span>(){
+       <span class="pl-k">return</span> linkedList<span class="pl-k">.</span>isEmpty();
+   }
+}</pre></div>
+
+<h2>
+<a id="vector-vektör" class="anchor" href="#vector-vekt%C3%B6r" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vector (Vektör)</h2>
+
+<ul>
+<li>Array sınıfının boyutu sabit olduğu için bu yazılım geliştirme sırasında dezavantajlara sebep oldu.Bu nedenle Java 2 ile birlikte ArrayList ve Vector sınıfı getirildi.ArrayList sınıfı senkronize değildir ama Vector sınıfından daha hızlıdır. Vector sınıfı ise senkronizedir ama ArrayList'ten daha yavaştır.Bu nedenle multi-thread (çoklu işlem)'lerde Vector sınıfını kullanmak multi-thread ortamda güvenilirliği arttırır.</li>
+<li>Vector sınıfı Java 2 ile birlikte ArrayList'in birçok metodunu aldığı için Vector sınıfı Array sınıfının önüne geçmiştir.</li>
+<li>Aslında vektörler içine eleman ekledikçe büyüyen dizilerdir.Ayrıca vektörlerin kapasitesinin ne değerde artacağı uygulamada tarafından belirlenebilir.</li>
+<li>
+<p>Bazı vektör metodları:</p>
+
+<ul>
+<li>
+<strong>Vector v = new  Vector();</strong>
+deyimi  uzunluğu 10 olan boş bir vektör yaratır. Uzunluk belirtilmediği zaman, vektör sınıfının öntanımlı (default) uzunluğu daima 10 bileşendir. </li>
+<li><p><strong>Vector v = new Vector(50);</strong> Uzunluğu 50 olan bir vektör nesnesi yaratır.</p></li>
+<li><p><strong>Vector v = new  Vector(Collection c);</strong>
+deyimi belirtilen koleksiyonun öğelerini içeren bir vektör yaratır.</p></li>
+<li><p><strong>Vector v = new  Vector(int  başlangıçKapasitesi);</strong>
+deyimi, başlangıç kapasitesi belirlenen boş bir vektör yaratır. Standart kapasite artışı 0 dır.</p></li>
+<li><p><strong>Vector v = new  Vector(int  başlangıçKapasite,  int  kapasiteArtışı);</strong>
+deyimi, başlangıç kapasitesi belirlenen boş bir vektör yaratır. Kapasite artışı kapasiteArtışı ile verilen int değerdir.</p></li>
+<li>Vektör örneği :</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">ucankucuk.github.io</span>;
+
+<span class="pl-k">import</span> <span class="pl-smi">java.util.Vector</span>;
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">VectorExample</span> {
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+
+        <span class="pl-k">Vector&lt;<span class="pl-smi">String</span>&gt;</span> v <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">Vector&lt;<span class="pl-smi">String</span>&gt;</span>(); <span class="pl-c">//Vektör oluşturma.</span>
+
+        <span class="pl-c">/*</span>
+<span class="pl-c">         * Vektöre eleman ekleme</span>
+<span class="pl-c">         * Kopya eleman eklenebilir</span>
+<span class="pl-c">         */</span>
+        v<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Giresun<span class="pl-pds">"</span></span>);
+        v<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>İzmir<span class="pl-pds">"</span></span>);
+        v<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>İstanbul<span class="pl-pds">"</span></span>);
+        v<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Ankara<span class="pl-pds">"</span></span>);
+        v<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Antalya<span class="pl-pds">"</span></span>);
+        v<span class="pl-k">.</span>add(<span class="pl-s"><span class="pl-pds">"</span>Giresun<span class="pl-pds">"</span></span>);
+
+        <span class="pl-c">//Vektörden eleman silme</span>
+        v<span class="pl-k">.</span>remove(<span class="pl-c1">5</span>);
+
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Eklemelerden sonra vektörün son hali : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> v);
+
+        <span class="pl-c">// verilen indekse eleman ekleme</span>
+        v<span class="pl-k">.</span>add(<span class="pl-c1">3</span>, <span class="pl-s"><span class="pl-pds">"</span>Afyon<span class="pl-pds">"</span></span>);
+        <span class="pl-c">// vektör uzunluğu</span>
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Vektörün uzunluğu : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> v<span class="pl-k">.</span>size());
+
+        <span class="pl-c">// Vektörün öğelerini listeleme (ForEach ile)</span>
+        <span class="pl-k">for</span> (<span class="pl-smi">String</span> eleman <span class="pl-k">:</span> v) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(eleman);
+        }
+        <span class="pl-c">//Vektörün öğelerini listeleme (For ile)</span>
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> v<span class="pl-k">.</span>size(); i<span class="pl-k">++</span>) {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Vektör öğesi : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> i <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> :<span class="pl-pds">"</span></span> <span class="pl-k">+</span> v<span class="pl-k">.</span>get(i));
+        }
+    }
+}</pre></div>
+
+<p>Ekran Çıktısı :</p>
+
+<ul>
+<li>Eklemelerden sonra vektörün son hali : [Giresun, İzmir, İstanbul, Ankara, Antalya]</li>
+<li>Vektörün uzunluğu : 6</li>
+<li>Giresun</li>
+<li>İzmir</li>
+<li>İstanbul</li>
+<li>Afyon</li>
+<li>Ankara</li>
+<li>Antalya</li>
+<li>Vektör öğesi : 0 :Giresun</li>
+<li>Vektör öğesi : 1 :İzmir</li>
+<li>Vektör öğesi : 2 :İstanbul</li>
+<li>Vektör öğesi : 3 :Afyon</li>
+<li>Vektör öğesi : 4 :Ankara</li>
+<li>Vektör öğesi : 5 :Antalya</li>
+</ul>
+
 <h1>
-<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
+<a id="map" class="anchor" href="#map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MAP</h1>
 
 <h1>
 <a id="java-stringbuilder--stringbuffer" class="anchor" href="#java-stringbuilder--stringbuffer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java StringBuilder &amp; StringBuffer</h1>
